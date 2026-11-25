@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entradas de extranjeros a Colombia · Tablero Power BI</title>
+  <meta name="description" content="Tablero interactivo sobre 181.186 entradas de extranjeros a Colombia (2012–junio 2026), construido con Power Query, DAX y Power BI sobre datos abiertos de Migración Colombia.">
+  <meta name="theme-color" content="#f8fafc">
+
+  <link rel="canonical" href="https://edstdico.github.io/turismo-colombia-powerbi/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="44,9 millones de entradas a Colombia · Tablero Power BI">
+  <meta property="og:description" content="EE. UU. y Venezuela concentran el 36,6 %. 2025 fue el año récord. Un tablero sobre 181.186 registros de Migración Colombia, 2012–junio 2026.">
+  <meta property="og:url" content="https://edstdico.github.io/turismo-colombia-powerbi/">
+  <meta property="og:image" content="https://edstdico.github.io/turismo-colombia-powerbi/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Tarjeta del tablero con el titular 44,9 millones de entradas a Colombia y la cifra 44.926.183.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="44,9 millones de entradas a Colombia · Tablero Power BI">
+  <meta name="twitter:description" content="EE. UU. y Venezuela concentran el 36,6 %. 2025 fue el año récord. Datos abiertos de Migración Colombia, 2012–junio 2026.">
+  <meta name="twitter:image" content="https://edstdico.github.io/turismo-colombia-powerbi/assets/og.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+  <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-slate-900 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white" href="#contenido">Saltar al contenido</a>
+
+  <header class="sticky top-0 z-40 border-b border-slate-200 bg-slate-50/90 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
+      <a class="flex items-center gap-3" href="#inicio" aria-label="PE-06, portafolio de datos">
+        <span class="rounded-lg bg-slate-900 px-2.5 py-1 text-xs font-bold tracking-widest text-white">PE-06</span>
+        <span class="text-sm font-medium text-slate-600">Portafolio de datos</span>
+      </a>
+      <nav class="hidden items-center gap-8 text-sm font-medium text-slate-600 sm:flex" aria-label="Secciones">
+        <a class="hover:text-slate-900" href="#tablero">Tablero</a>
+        <a class="hover:text-slate-900" href="#proceso">Proceso</a>
+        <a class="hover:text-slate-900" href="#calidad">Calidad</a>
+        <a class="hover:text-slate-900" href="#fuentes">Fuentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="mx-auto max-w-6xl px-6 py-16 sm:py-24" id="inicio">
+      <div class="grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Tablero Power BI · Migración Colombia</p>
+          <h1 class="mt-4 max-w-3xl text-5xl font-bold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">44,9 millones de <span class="text-blue-600">entradas</span> a Colombia.</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">EE. UU. y Venezuela concentran el 36,6 %. 2025 fue el año récord. Un tablero interactivo sobre 181.186 registros de datos abiertos, 2012–junio 2026.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700" href="#tablero">Ver el tablero <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7l10 10"/><path d="M17 7v10H7"/></svg></a>
+            <a class="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50" href="#proceso">Cómo lo hice</a>
+          </div>
+          <p class="mt-4 text-sm text-slate-500">Proyecto personal con datos públicos. No es experiencia laboral.</p>
+        </div>
+
+        <div class="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+          <p class="text-sm font-medium text-slate-500">Total del tablero</p>
+          <p class="mt-2 text-4xl font-bold tracking-tight text-slate-900">44.926.183</p>
+          <p class="mt-1 text-sm text-slate-500">Suma Femenino + Masculino · 2012–jun. 2026</p>
+          <dl class="mt-6 grid grid-cols-2 gap-4 border-t border-slate-200 pt-6">
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Países M49</dt>
+              <dd class="mt-1 text-2xl font-semibold text-slate-900">234</dd>
+            </div>
+            <div>
+              <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Año pico</dt>
+              <dd class="mt-1 text-2xl font-semibold text-slate-900">2025</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <dl class="mt-12 grid grid-cols-2 gap-6 border-y border-slate-200 py-8 sm:grid-cols-4">
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Entradas registradas</dt>
+          <dd class="mt-1 text-2xl font-bold tracking-tight text-slate-900">44.926.183</dd>
+          <p class="mt-1 text-sm text-slate-500">2012–jun. 2026 · sin filtros</p>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Países y territorios M49</dt>
+          <dd class="mt-1 text-2xl font-bold tracking-tight text-slate-900">234</dd>
+          <p class="mt-1 text-sm text-slate-500">Kosovo y residuales aparte</p>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Año pico</dt>
+          <dd class="mt-1 text-2xl font-bold tracking-tight text-slate-900">2025</dd>
+          <p class="mt-1 text-sm text-slate-500">5.130.449 entradas</p>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Variación 2025 vs 2024</dt>
+          <dd class="mt-1 text-2xl font-bold tracking-tight text-slate-900">+5,9 %</dd>
+          <p class="mt-1 text-sm text-slate-500">Años completos</p>
+        </div>
+      </dl>
+    </section>
+
+    <section class="border-t border-slate-200" id="tablero">
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Lámina 01</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">El tablero</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">KPIs, evolución anual, mapa de puestos de control migratorio, ranking de nacionalidades y filtros por año y región. Se carga bajo demanda para no frenar la página.</p>
+        </div>
+
+        <div class="mt-10">
+          <div class="relative h-[520px] overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-sm [&>iframe]:h-full [&>iframe]:w-full lg:aspect-video lg:h-auto" id="reporte" role="region" aria-label="Tablero de Power BI">
+            <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center text-white" id="poster">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Tablero interactivo</p>
+              <h3 class="w-full text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">Entradas de extranjeros<br>a Colombia</h3>
+              <p class="text-sm text-slate-400">2012 – junio 2026 · Power BI</p>
+              <div class="flex flex-wrap justify-center gap-2 text-xs font-medium text-slate-300">
+                <span class="rounded-full border border-slate-700 px-3 py-1">181.186 filas</span>
+                <span class="rounded-full border border-slate-700 px-3 py-1">234 países</span>
+                <span class="rounded-full border border-slate-700 px-3 py-1">44,9 M entradas</span>
+              </div>
+              <a class="mt-2 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-slate-900 shadow-sm transition hover:bg-slate-100" id="cargar-tablero" href="https://app.powerbi.com/view?r=eyJrIjoiNmFiN2FkY2EtMGVhMi00NzE0LTliMWItYmM3MDBmMDU2OWFhIiwidCI6IjYzN2YzZGJlLWJmNWYtNDA2ZS1hNzA1LWNhODc0YjYwNjBhMiIsImMiOjR9" target="_blank" rel="noopener" aria-expanded="false" aria-controls="reporte">
+                <svg class="h-3 w-3" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.5v9l8-4.5-8-4.5z"/></svg>
+                Cargar tablero
+              </a>
+              <p class="w-full max-w-md text-xs text-slate-500">Si el navegador bloquea el embed, el enlace abre el tablero en una pestaña nueva.</p>
+            </div>
+            <template id="iframe-template">
+              <iframe title="Analisis_Turismo_Colombia" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiNmFiN2FkY2EtMGVhMi00NzE0LTliMWItYmM3MDBmMDU2OWFhIiwidCI6IjYzN2YzZGJlLWJmNWYtNDA2ZS1hNzA1LWNhODc0YjYwNjBhMiIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+            </template>
+          </div>
+          <div class="mt-3 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-500">
+            <a class="inline-flex items-center gap-1.5 font-medium text-blue-600 hover:text-blue-700" href="https://app.powerbi.com/view?r=eyJrIjoiNmFiN2FkY2EtMGVhMi00NzE0LTliMWItYmM3MDBmMDU2OWFhIiwidCI6IjYzN2YzZGJlLWJmNWYtNDA2ZS1hNzA1LWNhODc0YjYwNjBhMiIsImMiOjR9" target="_blank" rel="noopener">Abrir en Power BI <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
+            <span>Vista pública · publish-to-web</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-slate-200" id="proceso">
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Método</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Cómo lo hice</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">Seis etapas, de la API al tablero publicado. Sin pasos inventados: solo las herramientas y decisiones que están detrás del visual.</p>
+        </div>
+
+        <ol class="mt-10 space-y-6">
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">01</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Fuentes</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">Datos abiertos, una API y un estándar</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Migración Colombia publica las entradas de extranjeros en datos.gov.co. La API de Socrata entrega la tabla; la ONU aporta los códigos M49 para agrupar por país y región. La licencia es CC BY-SA 4.0 y el corte de la fuente es el 20/08/2026.</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">datos.gov.co</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">API Socrata</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">UN M49</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">181.186 filas</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">02</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Extracción y limpieza</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">Cuatro páginas, una tabla consistente</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Descarga vía API en cuatro páginas de 50.000 filas. En Power Query: tipado de columnas, renombrado de <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Total</code> a <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Viajeros</code>, unión con la dimensión M49 por código y revisión de nulos y códigos residuales. La columna <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Indefinido</code> está vacía y no aporta al modelo.</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Power Query</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">4 páginas</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Normalización por M49</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">03</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Modelado dimensional</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">Hechos, dimensión y calendario</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Tabla de hechos <code class="break-all rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Entradas_de_extranjeros_a_Colombia_20261124</code>; dimensión <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">UNSD — Methodology</code> (M49); tabla de fechas marcada; relación con la tabla de hechos. El nombre guarda el snapshot del modelo: <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">20261124</code>.</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Modelo en estrella</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Tabla de fechas</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Snapshot 2026-11-24</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">04</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Cálculos y lógica de negocio</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">Tres medidas que sostienen los KPIs</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">El total suma <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Viajeros</code> (Femenino + Masculino), no la columna <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">Total</code> original. El año pico se calcula con <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">TOPN</code> y <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">MAXX</code>; los países emisores se cuentan sobre la dimensión M49. La diferencia con la fuente se documenta en la sección de calidad.</p>
+                <details class="mt-4 rounded-xl border border-slate-200 bg-slate-900 p-4 text-slate-100">
+                  <summary class="cursor-pointer text-sm font-semibold text-slate-100">Ver las medidas DAX</summary>
+                  <pre class="mt-3 overflow-x-auto text-xs leading-6 text-slate-300"><code>total viajeros =
+SUM('Entradas_de_extranjeros_a_Colombia_20261124'[Viajeros])
+
+año pico =
+MAXX(
+    TOPN(
+        1,
+        VALUES('Entradas_de_extranjeros_a_Colombia_20261124'[Año]),
+        [total viajeros],
+        DESC
+    ),
+    'Entradas_de_extranjeros_a_Colombia_20261124'[Año]
+)
+
+paises emisores =
+CALCULATE(
+    DISTINCTCOUNT('UNSD — Methodology'[Country or Area]),
+    'Entradas_de_extranjeros_a_Colombia_20261124'
+)</code></pre>
+                </details>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">DAX</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Total</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Año pico</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Países emisores</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">05</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Visualización y storytelling</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">El relato detrás de las cifras</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">KPIs, evolución anual, mapa de puestos de control migratorio, ranking de nacionalidades y filtros por año y región. 2025 se destaca como récord; 2026 se marca como parcial (enero–junio) y no se compara con años completos.</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Power BI</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Mapa PCM</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Ranking</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Slicers</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div class="flex gap-4">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">06</span>
+              <div class="min-w-0">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">Despliegue y gobernanza</p>
+                <h3 class="mt-1 text-xl font-semibold tracking-tight text-slate-900">Publicado, embebido y atribuido</h3>
+                <p class="mt-2 text-sm leading-6 text-slate-600">Publicado en Power BI Service y embebido con publish-to-web. La página vive en GitHub Pages, sin build en producción. La fuente es semestral: el tablero no se actualiza solo. Snapshot <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-sm text-slate-800">20261124</code>, licencia visible y nota de calidad.</p>
+                <ul class="mt-4 flex flex-wrap gap-2">
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Power BI Service</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">GitHub Pages</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">Publish-to-web</li>
+                  <li class="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">CC BY-SA 4.0</li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="border-t border-slate-200" id="calidad">
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Registro de incidencias</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Calidad del dato</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">Lo que encontré al revisar la fuente y cómo lo traté. Es la parte que no se ve en el tablero, pero la que permite confiar en él.</p>
+        </div>
+
+        <div class="mt-10 overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <table class="min-w-full divide-y divide-slate-200">
+            <caption class="sr-only">Hallazgos de calidad del dato y su tratamiento</caption>
+            <thead class="bg-slate-50">
+              <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Hallazgo</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Magnitud</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500">Tratamiento</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200">
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Códigos residuales</td>
+                <td class="px-6 py-4 text-sm text-slate-600">4 códigos · 26.515 entradas</td>
+                <td class="px-6 py-4 text-sm text-slate-600"><code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">99999</code> (24.301) + <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">No Aplica</code> (2.214). Se reportan aparte; no se asignan a un país.</td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Nombres duplicados</td>
+                <td class="px-6 py-4 text-sm text-slate-600">24 códigos con 2 variantes</td>
+                <td class="px-6 py-4 text-sm text-slate-600">Diferencias de mayúsculas (“de” vs “De”, “y” vs “Y”). Se unifican por código M49.</td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Total vs Femenino + Masculino</td>
+                <td class="px-6 py-4 text-sm text-slate-600">1.275 filas · 2.051 entradas</td>
+                <td class="px-6 py-4 text-sm text-slate-600">El tablero usa Femenino + Masculino; la fuente reporta <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">Total</code>. Se documenta la diferencia.</td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Columna “Indefinido”</td>
+                <td class="px-6 py-4 text-sm text-slate-600">100 % vacía</td>
+                <td class="px-6 py-4 text-sm text-slate-600">No aporta al modelo y se excluye.</td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">2026 parcial</td>
+                <td class="px-6 py-4 text-sm text-slate-600">Enero–junio · 2.430.484</td>
+                <td class="px-6 py-4 text-sm text-slate-600">Se marca en el visual; no se compara con años completos.</td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-slate-900">Kosovo (901)</td>
+                <td class="px-6 py-4 text-sm text-slate-600">298 entradas</td>
+                <td class="px-6 py-4 text-sm text-slate-600">No está en M49. Se reporta aparte del conteo de países.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="mt-4 max-w-4xl text-sm leading-6 text-slate-500">La fuente suma 44.928.340 con la columna <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">Total</code>; el tablero suma 44.926.183 con Femenino + Masculino. La diferencia de 2.157 incluye 2.051 entradas de filas donde <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">Total</code> ≠ F+M y 106 pendientes de revisar en el refresh.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-slate-200" id="limites">
+      <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:py-20 lg:grid-cols-2">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Alcance</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Qué no responde</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">Un tablero también se define por lo que deja fuera. Estas son las preguntas que los datos no permiten contestar con honestidad.</p>
+        </div>
+        <ul class="space-y-4">
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">No son personas únicas.</strong> Cada fila es una entrada registrada; una misma persona puede cruzar varias veces.</span></li>
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">Nacionalidad no es residencia.</strong> El país corresponde a la nacionalidad, no al lugar desde donde llegó el viajero.</span></li>
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">2026 está incompleto.</strong> Solo hay enero–junio. La comparación justa es −2,7 % vs ene–jun 2025, no contra años completos.</span></li>
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">La fuente es semestral.</strong> El tablero no se actualiza solo y no promete tiempo real.</span></li>
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">Cinco códigos no tienen región M49.</strong> Kosovo y cuatro residuales se reportan aparte.</span></li>
+          <li class="flex gap-3 text-sm leading-6 text-slate-600"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600"></span><span><strong class="font-semibold text-slate-900">No explica causas ni motivo de viaje.</strong> No hay edad, aeropuerto, tipo de visa ni intención de viaje.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="border-t border-slate-200" id="repro">
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Anexo</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Reproducibilidad</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">La tabla completa se puede traer con cuatro solicitudes a la API. El endpoint es público; no requiere credenciales.</p>
+        </div>
+
+        <div class="mt-8 overflow-hidden rounded-2xl bg-slate-900 shadow-sm">
+          <div class="flex flex-wrap justify-between gap-2 border-b border-slate-800 px-5 py-3 text-xs font-medium uppercase tracking-wide text-slate-400">
+            <span>API Socrata · 96sh-4v8d</span>
+            <span>4 páginas · 50.000 por página</span>
+          </div>
+          <pre class="overflow-x-auto p-5 text-xs leading-7 text-slate-300"><code>https://www.datos.gov.co/resource/96sh-4v8d.json?$limit=50000&amp;$offset=0&amp;$order=:id
+https://www.datos.gov.co/resource/96sh-4v8d.json?$limit=50000&amp;$offset=50000&amp;$order=:id
+https://www.datos.gov.co/resource/96sh-4v8d.json?$limit=50000&amp;$offset=100000&amp;$order=:id
+https://www.datos.gov.co/resource/96sh-4v8d.json?$limit=50000&amp;$offset=150000&amp;$order=:id</code></pre>
+        </div>
+        <p class="mt-4 max-w-4xl text-sm leading-6 text-slate-500"><code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">$order=:id</code> mantiene la paginación estable. La API acepta hasta 50.000 filas por solicitud; la última página trae 31.186. La fuente se actualiza: el conteo puede cambiar con el tiempo. Consulta de referencia: 24/11/2026.</p>
+      </div>
+    </section>
+
+    <section class="border-t border-slate-200" id="fuentes">
+      <div class="mx-auto max-w-6xl px-6 py-16 sm:py-20">
+        <div class="max-w-3xl">
+          <p class="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Colofón</p>
+          <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Fuentes y licencia</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-600">Datos abiertos, atribución explícita y una licencia que también exige compartir igual.</p>
+        </div>
+
+        <dl class="mt-8 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white">
+          <div class="grid gap-1 px-6 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Fuente</dt>
+            <dd class="text-sm text-slate-600"><a class="font-medium text-blue-600 hover:text-blue-700" href="https://www.datos.gov.co/Estad-sticas-Nacionales/Entradas-de-extranjeros-a-Colombia/96sh-4v8d/about_data" target="_blank" rel="noopener">Migración Colombia — Entradas de extranjeros a Colombia</a></dd>
+          </div>
+          <div class="grid gap-1 px-6 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Estándar</dt>
+            <dd class="text-sm text-slate-600"><a class="font-medium text-blue-600 hover:text-blue-700" href="https://unstats.un.org/unsd/methodology/m49/" target="_blank" rel="noopener">UN M49 — Standard country or area codes</a></dd>
+          </div>
+          <div class="grid gap-1 px-6 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Licencia</dt>
+            <dd class="text-sm text-slate-600"><a class="font-medium text-blue-600 hover:text-blue-700" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank" rel="noopener">CC BY-SA 4.0</a> · atribución y compartir igual</dd>
+          </div>
+          <div class="grid gap-1 px-6 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Corte de la fuente</dt>
+            <dd class="text-sm text-slate-600">20/08/2026 · último mes con datos: junio 2026</dd>
+          </div>
+          <div class="grid gap-1 px-6 py-4 sm:grid-cols-[180px_1fr] sm:gap-4">
+            <dt class="text-xs font-semibold uppercase tracking-wide text-slate-500">Tablero</dt>
+            <dd class="text-sm text-slate-600">24/11/2026 · snapshot <code class="rounded bg-slate-100 px-1.5 py-0.5 font-mono text-xs text-slate-800">20261124</code></dd>
+          </div>
+        </dl>
+
+        <p class="mt-6 max-w-4xl rounded-xl border-l-4 border-blue-600 bg-blue-50 p-4 text-sm leading-6 text-slate-700">Fuente: Migración Colombia, <em>Entradas de extranjeros a Colombia</em> (datos.gov.co, corte 20/08/2026). Licencia CC BY-SA 4.0. Esta página y el tablero son obras derivadas y se comparten bajo la misma licencia. No hay afiliación con Migración Colombia.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-16 bg-slate-900 text-slate-300">
+    <div class="mx-auto max-w-6xl px-6 py-12">
+      <div class="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">PE-06 · Portafolio de datos</p>
+          <p class="mt-3 max-w-md text-2xl font-semibold tracking-tight text-white">Entradas de extranjeros a Colombia, 2012–2026.</p>
+          <p class="mt-2 text-sm text-slate-400">Proyecto personal con datos abiertos. No es experiencia laboral.</p>
+        </div>
+        <div class="flex flex-wrap gap-6 text-sm font-medium">
+          <a class="inline-flex items-center gap-1.5 hover:text-white" href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener">LinkedIn <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
+          <a class="inline-flex items-center gap-1.5 hover:text-white" href="https://github.com/EdStDiCo" target="_blank" rel="noopener">GitHub <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3h7v7"/><path d="M10 14L21 3"/><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a>
+          <a class="inline-flex items-center gap-1.5 hover:text-white" href="#inicio">Volver arriba <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></a>
+        </div>
+      </div>
+      <div class="mt-8 flex flex-col gap-2 border-t border-slate-800 pt-6 text-xs text-slate-500 sm:flex-row sm:justify-between">
+        <span>Datos: Migración Colombia · CC BY-SA 4.0</span>
+        <span>Página estática · Tailwind CSS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
